@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaker Simulation</title>
+    <link rel="icon" type="image/x-icon" href="public/images/favicon.ico">
+
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/style.css">
+</head>
+
+<body class="font-mono body min-h-screen bg-gray-100 my-container">
+    <!-- HEADER -->
+    <header class="bg-white text-blue-900 sticky top-0 z-50 shadow-md rounded-2xl">
+        <section class="max-w-7xl mx-auto p-4 flex justify-between items-center">
+            <h1 class="text-xl sm:text-xl font-bold">
+                <div class="flex items-center hover:opacity-70">
+                    <img src="public/images/android-chrome-192x192.png" alt="" class="w-16">
+                    <a href="" class="font-mono">Circuit Fault Calculator</a>
+                </div>
+            </h1>
+            <div>
+                <button onclick="showHamburger()" class="text-3xl lg:hidden">
+                    ☰
+                </button>
+                <nav class="hidden lg:block space-x-8 text-xl font-bold" aria-label="main">
+                    <a href="" class="hover:opacity-70">Our Goal</a>
+                    <a href="" class="hover:opacity-70">About Us</a>
+
+                    <a href="">
+
+                        <button
+                            class="p-2 pl-5 pr-5 border-2 bg-blue-500 text-white text-xl rounded-xl transition-colors duration-700 transform hover:bg-blue-700 hover:text-gray-100 focus:border-4 focus:border-blue-300 border-b-8 border-blue-900 hover:scale-105">Let's
+                            get started</button>
+                    </a>
+                </nav>
+            </div>
+        </section>
+
+        <section id="hamburger"
+            class="bg-white w-full text-center right-1 rounded-2xl shadow-md shadow-bottom-2xl border border-gray-300 -mt-5 absolute hidden lg:hidden">
+            <nav>
+                <div class="">
+                    <div class="text-blue-900 px-2 pt-4 pb-3 space-y-1 sm:px-3">
+                        <a href="#" class="block px-3 py-4 rounded-md text-base font-medium hover:bg-blue-200">Home</a>
+                        <a href="#" class="block px-3 py-4 rounded-md text-base font-medium hover:bg-blue-200">Our
+                            Goal</a>
+                        <a href="#" class="block px-3 py-4 rounded-md text-base font-medium hover:bg-blue-200">About
+                            Us</a>
+                        <a href="dashboard.php" class="py-4">
+                            <button
+                                class="p-2 pl-5 pr-5 border-2 bg-blue-500 text-white font-bold rounded-xl transition-colors duration-700 transform hover:bg-blue-700 hover:text-gray-100 focus:border-4 focus:border-blue-300 border-b-8 border-blue-900 hover:scale-105">System
+                                Administrator</button>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </section>
+    </header>
+    <!-- END HEADER -->
+
+    <main class="sm:px-20 mx-auto">
+
+        <!-- LANDING PAGE -->
+        <section class="flex flex-col justify-center lg:flex-row p-6 items-center gap-4 mt-5">
+            <article class="ml-0 lg:ml-20 lg:w-full">
+                <h2 class="text-blue-900 p-2 text-lg font-extrabold text-center lg:text-left sm:text-3xl">
+                    Three Phase Short Circuit Fault Calculator
+                </h2>
+                <br>
+                <div class="w-full lg:w-1/2">
+                    <label for="faultType" class="block mb-2 text-sm text-gray-900 font-bold">Transformer</label>
+                    <div class="flex items-center justify-center mx-auto">
+                        <button type="button"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">T1</button>
+                        <button type="button"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">T2</button>
+                        <button type="button"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">T3</button>
+                    </div>
+
+                    <br>
+                    <label for="faultLocation" class="block mb-2 text-sm text-gray-900 font-bold">Volts</label>
+                    <div class="flex gap-2">
+                        <div>
+                            <select id="volts1" onchange=""
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required>
+                                <option selected disabled>Choose Volts</option>
+                                <option value="208">208</option>
+                                <option value="240">240</option>
+                                <option value="480">480</option>
+                                <option value="480">600</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <select id="volts2" onchange=""
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required>
+                                <option selected disabled>Choose Volts</option>
+                                <option value="208">208</option>
+                                <option value="240">240</option>
+                                <option value="480">480</option>
+                                <option value="480">600</option>
+                            </select>
+                        </div>
+
+
+                        <div>
+                            <select id="volts2" onchange=""
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                required>
+                                <option selected disabled>Choose Volts</option>
+                                <option value="208">208</option>
+                                <option value="240">240</option>
+                                <option value="480">480</option>
+                                <option value="480">600</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="mt-10">
+                        <label for="faultLocation"
+                            class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">kVA (1-750)</label>
+                        <div class="flex gap-2">
+                            <div>
+                                <label for="helper-text"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">kVA</label>
+                                <input type="email" id="helper-text" aria-describedby="helper-text-explanation"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required>
+                            </div>
+
+                            <div>
+                                <label for="helper-text"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">kVA</label>
+                                <input type="email" id="helper-text" aria-describedby="helper-text-explanation"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required>
+                            </div>
+
+                            <div>
+                                <label for="helper-text"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">kVA</label>
+                                <input type="email" id="helper-text" aria-describedby="helper-text-explanation"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="mt-10 p-4 sm:p-0">
+                        <h1 class="text-2xl font-bold">Output</h1>
+                        <textarea name="" id="" cols="60" rows="10" class="border border-gray-400"></textarea>
+                    </div>
+                </div>
+
+                <br>
+            </article>
+            <div class="w-full">
+                <img id="busImage" class="w-full sm:m-none object-cover rounded-lg shadow-lg"
+                    src="public/images/slc.png" alt="Default Image">
+
+                <div class="flex gap-4 mt-10 mx-auto justify-center items-center">
+                    <div>
+                        <input checked id="checked-checkbox" type="checkbox" value=""
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checked-checkbox"
+                            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Show Calculation</label>
+                    </div>
+
+                    <div>
+                        <button type="button"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Simulate</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END LANDING PAGE -->
+    </main>
+
+    <script src="public/js/hamburger.js"></script>
+</body>
+
+</html>
